@@ -3,21 +3,104 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Gift cards">
-  <h1>Gift cards</h1>
+  <div class="page-content">
+    <h1>Gift cards</h1>
 
-  <p>
-    Savoir French sells gift vouchers that can be redeemed at their café on
-    the ANU campus, 105 Ellery Crescent.
-  </p>
+    <p>
+      Savoir French sells gift vouchers that can be redeemed at their
+      café on the ANU campus, 105 Ellery Crescent.
+    </p>
 
-  <p class="placeholder">
-    We don't have confirmed gift card values, terms, or expiry details. This
-    section is a placeholder until that's confirmed with the café directly.
-  </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
+      odio praesent libero sed cursus ante dapibus diam. Gift card values,
+      terms, and expiry details are placeholder copy until confirmed with
+      the café directly.
+      <sup class="footnote-mark">*</sup>
+    </p>
 
-  <div class="cta-row">
-    <a class="btn" href="https://savoirfrench.com.au">
-      Buy a gift card on their site
-    </a>
+    <div class="gift-calculator">
+      <h2>Choose an amount</h2>
+      <p>
+        Buy a pre-paid gift card and get 2% off the card's value.
+        <sup class="footnote-mark">*</sup>
+      </p>
+
+      <div class="amount-quick" role="group" aria-label="Common amounts">
+        <button type="button" class="amount-btn" data-amount="25">
+          $25
+        </button>
+        <button type="button" class="amount-btn" data-amount="50">
+          $50
+        </button>
+        <button type="button" class="amount-btn" data-amount="100">
+          $100
+        </button>
+      </div>
+
+      <label for="gift-amount" class="gift-amount-label">
+        Gift card value: <output id="gift-amount-output" for="gift-amount"
+          >$50</output
+        >
+      </label>
+      <input
+        type="range"
+        id="gift-amount"
+        min="0"
+        max="100"
+        step="5"
+        value="50"
+      />
+
+      <p class="gift-price">
+        You pay <strong id="gift-pay-amount">$49.00</strong> for a
+        <strong id="gift-face-amount">$50</strong> gift card.
+      </p>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" href="https://savoirfrench.com.au">
+        Buy a gift card on their site
+      </a>
+    </div>
   </div>
+
+  <script>
+    const input = document.querySelector<HTMLInputElement>("#gift-amount");
+    const output =
+      document.querySelector<HTMLOutputElement>("#gift-amount-output");
+    const payAmount =
+      document.querySelector<HTMLElement>("#gift-pay-amount");
+    const faceAmount =
+      document.querySelector<HTMLElement>("#gift-face-amount");
+    const amountButtons =
+      document.querySelectorAll<HTMLButtonElement>(".amount-btn");
+
+    function update(value: string) {
+      const amount = Number(value);
+      if (output) output.textContent = `$${amount}`;
+      if (faceAmount) faceAmount.textContent = `$${amount}`;
+      if (payAmount) {
+        payAmount.textContent = `$${(amount * 0.98).toFixed(2)}`;
+      }
+      amountButtons.forEach((button) => {
+        button.classList.toggle(
+          "is-selected",
+          button.dataset.amount === value,
+        );
+      });
+    }
+
+    input?.addEventListener("input", () => update(input.value));
+
+    amountButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!input || !button.dataset.amount) return;
+        input.value = button.dataset.amount;
+        update(input.value);
+      });
+    });
+
+    if (input) update(input.value);
+  </script>
 </Layout>

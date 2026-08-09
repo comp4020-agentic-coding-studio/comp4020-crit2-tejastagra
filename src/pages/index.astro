@@ -3,11 +3,34 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home">
-  <section class="hero">
-    <h1>Savoir French</h1>
+  <section
+    class="hero"
+    style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=70');"
+  >
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Savoir French</h1>
+      <p class="tagline">
+        A small French café, bakery and caterer on the ANU campus.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="https://savoirfrench.com.au">
+          Order on their site
+        </a>
+        <a
+          class="btn btn-secondary"
+          href="https://www.google.com/maps/search/?api=1&query=105+Ellery+Crescent+Acton+ACT+2601"
+        >
+          Get directions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-content">
+    <h2>Visit us</h2>
     <p class="location">
-      A small French café, bakery and caterer on the ANU campus, near the
-      Kambri precinct — <strong>105 Ellery Crescent, Acton</strong>.
+      <strong>105 Ellery Crescent, Acton</strong>, near the Chancellery.
     </p>
 
     <table class="hours-table" aria-label="Opening hours">
@@ -27,33 +50,11 @@ import Layout from "../layouts/Layout.astro";
       </tbody>
     </table>
 
-    <div class="cta-row">
-      <a class="btn" href="https://savoirfrench.com.au">Order on their site</a>
-      <a
-        class="btn btn-secondary"
-        href="https://www.google.com/maps/search/?api=1&query=105+Ellery+Crescent+Acton+ACT+2601"
-      >
-        Get directions
-      </a>
-    </div>
-
     <p class="entrance-note">
-      <strong>Finding the entrance:</strong> Savoir French is inside the lobby
-      of the ANU School of Art &amp; Design building on Ellery Crescent — look
-      for the building lobby, not a street-facing shopfront.
+      <strong>Finding the entrance</strong> Savoir French is inside the
+      lobby of the ANU School of Art &amp; Design building on Ellery
+      Crescent — look for the building lobby, not a street-facing
+      shopfront.
     </p>
-  </section>
-
-  <figure>
-    <img
-      src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=60"
-      alt="Placeholder stock photo of croissants — not an actual photo of Savoir French"
-      width="1200"
-      height="800"
-      loading="lazy"
-    />
-    <figcaption>
-      Placeholder photo (Unsplash), not a real photo of this café.
-    </figcaption>
-  </figure>
+  </div>
 </Layout>

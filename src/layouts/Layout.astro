@@ -26,7 +26,7 @@ const navLinks = [
   <body>
     <header class="site-header">
       <a class="brand" href={base}>Savoir French</a>
-      <nav aria-label="Primary">
+      <nav aria-label="Primary" id="primary-nav">
         <ul>
           {
             navLinks.map((link) => (
@@ -37,17 +37,64 @@ const navLinks = [
           }
         </ul>
       </nav>
+      <a
+        class="btn header-cta"
+        href="https://www.google.com/maps/search/?api=1&query=105+Ellery+Crescent+Acton+ACT+2601"
+      >
+        Get directions
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
     <main>
       <slot />
     </main>
     <footer class="site-footer">
+      <p class="footer-contact">
+        Email <a href="mailto:info@savoirfrench.com.au"
+          >info@savoirfrench.com.au</a
+        >
+      </p>
+      <ul class="social-links">
+        <li>
+          <a href="https://www.facebook.com/labaguettecanberra/?ref=bookmarks"
+            >Facebook</a
+          >
+        </li>
+        <li>
+          <a href="https://www.instagram.com/labaguettebyrandm/">Instagram</a>
+        </li>
+        <li><a href="https://twitter.com/LaBaguetteANU">Twitter</a></li>
+      </ul>
       <p>
         This is a student redesign made for COMP4020 at ANU. It is not the
         official Savoir French website. For real ordering, gift cards, and
-        bookings, visit
-        <a href="https://savoirfrench.com.au">savoirfrench.com.au</a>.
+        bookings, visit <a href="https://savoirfrench.com.au"
+          >savoirfrench.com.au</a
+        >.
+      </p>
+      <p class="footnote-key">
+        Text marked <span class="footnote-mark">*</span> is placeholder copy,
+        not yet confirmed with Savoir French.
       </p>
     </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
+      const nav = document.getElementById("primary-nav");
+      toggle?.addEventListener("click", () => {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        nav?.classList.toggle("is-open");
+      });
+    </script>
   </body>
 </html>

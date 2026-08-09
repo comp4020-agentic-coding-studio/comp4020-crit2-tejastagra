@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap");
+
 :root {
   --colour-cream: #f5f0e8;
   --colour-text: #2c2c2c;
   --colour-gold: #c9a84c;
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
 }
 
 * {
@@ -10,9 +14,9 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.85;
   color: var(--colour-text);
   background: var(--colour-cream);
 }
@@ -20,6 +24,10 @@ body {
 a {
   color: var(--colour-text);
   text-decoration: underline;
+}
+
+.social-links a {
+  font-weight: 600;
 }
 
 a:focus-visible,
@@ -30,91 +38,312 @@ button:focus-visible {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
   line-height: 1.2;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3.75rem;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
 }
+
+/* Header + navigation */
 
 .site-header {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.5rem;
-  border-bottom: 2px solid var(--colour-gold);
+  padding: 1.25rem 2rem;
+  background: var(--colour-cream);
+  border-bottom: 1px solid var(--colour-gold);
+  position: relative;
 }
 
 .brand {
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
   text-decoration: none;
+}
+
+.header-cta {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background: none;
+  border: 2px solid var(--colour-text);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--colour-text);
 }
 
 .site-header nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-main {
-  max-width: 60rem;
+.site-header nav {
+  font-family: var(--font-body);
+}
+
+.site-header nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+@media (width <= 43.75em) {
+  .site-header {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .header-cta {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-header nav#primary-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    background: var(--colour-cream);
+    border-bottom: 1px solid var(--colour-gold);
+    padding: 1rem 2rem;
+  }
+
+  .site-header nav#primary-nav.is-open {
+    display: block;
+  }
+
+  .site-header nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.page-content {
+  max-width: 64rem;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 5rem 1.5rem;
+}
+
+.page-content > h2 {
+  margin-top: 5rem;
 }
 
 .site-footer {
-  padding: 1.5rem;
-  border-top: 2px solid var(--colour-gold);
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--colour-gold);
   font-size: 0.9rem;
+  text-align: center;
 }
+
+.footnote-key {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.footer-contact {
+  margin: 0 0 1rem;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.footnote-mark {
+  color: var(--colour-gold);
+  font-weight: 700;
+}
+
+/* Hero */
 
 .hero {
-  padding: 1rem 0 2rem;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 }
 
-.hero .location {
-  font-size: 1.1rem;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 45%),
+    rgb(0 0 0 / 65%)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  padding: 2rem 1.5rem;
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 4.5rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.hero-content .tagline {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.side-by-side,
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 2.5rem 0;
+}
+
+.side-by-side {
+  align-items: center;
+}
+
+.two-col {
+  align-items: start;
+}
+
+.two-col h2 {
+  margin-top: 0;
+}
+
+@media (width <= 43.75em) {
+  .side-by-side,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Full-width feature section (e.g. a pull quote) that breaks out of .page-content */
+
+.story-feature {
+  padding: 6rem 1.5rem;
+  margin: 2rem 0;
+  background: #fff;
+  text-align: center;
+}
+
+.story-feature h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--colour-gold);
+}
+
+.story-feature blockquote {
+  max-width: 44rem;
+  margin: 1.5rem auto 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 2.25rem;
+  line-height: 1.4;
+  color: var(--colour-gold);
+}
+
+.page-content > h2:first-of-type {
+  margin-top: 0;
 }
 
 .cta-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin: 1rem 0;
 }
 
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.9rem 2rem;
   background: var(--colour-gold);
   color: var(--colour-text);
   text-decoration: none;
-  border-radius: 0.25rem;
-  font-weight: bold;
-  border: 2px solid var(--colour-text);
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid var(--colour-gold);
 }
 
 .btn:hover {
-  background: var(--colour-text);
-  color: var(--colour-cream);
+  background: #b3944080;
+  border-color: #fff;
 }
 
 .btn-secondary {
   background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
 }
 
+.btn-secondary:hover {
+  background: rgb(255 255 255 / 15%);
+}
+
+/* Hours table */
+
 .hours-table {
+  width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
 }
@@ -122,42 +351,131 @@ main {
 .hours-table th,
 .hours-table td {
   text-align: left;
-  padding: 0.4rem 1rem 0.4rem 0;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e6ddc9;
+}
+
+.hours-table th {
+  font-weight: 600;
+  color: var(--colour-text);
+}
+
+.hours-table tr:last-child th,
+.hours-table tr:last-child td {
+  border-bottom: none;
 }
 
 .entrance-note {
-  background: #fff;
-  border-left: 4px solid var(--colour-gold);
-  padding: 1rem;
-  margin: 1rem 0;
+  border-top: 1px solid var(--colour-gold);
+  border-bottom: 1px solid var(--colour-gold);
+  padding: 1.75rem 0;
+  margin: 2.5rem 0 0;
 }
 
-.placeholder {
-  background: #fff;
-  border: 2px dashed var(--colour-gold);
-  padding: 1rem;
-  margin: 1rem 0;
-  font-style: italic;
-}
-
-.placeholder::before {
-  content: "PLACEHOLDER — not confirmed: ";
-  font-style: normal;
-  font-weight: bold;
+.entrance-note strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--colour-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 figure {
-  margin: 1.5rem 0;
+  margin: 0;
 }
 
 figure img {
+  display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 }
 
 figcaption {
   font-size: 0.85rem;
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
   color: var(--colour-text);
+}
+
+/* Gift card calculator */
+
+.gift-calculator {
+  margin: 2.5rem 0;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--colour-gold);
+  border-bottom: 1px solid var(--colour-gold);
+}
+
+.amount-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.amount-btn {
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  color: var(--colour-text);
+  border: 2px solid var(--colour-gold);
+  border-radius: 999px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.amount-btn.is-selected {
+  background: var(--colour-gold);
+}
+
+.gift-amount-label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.gift-amount-label output {
+  color: var(--colour-gold);
+  font-size: 1.25rem;
+}
+
+#gift-amount {
+  width: 100%;
+  accent-color: var(--colour-gold);
+}
+
+.gift-price {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Carousel (CSS scroll-snap, no JS) */
+
+.carousel-section {
+  padding: 2rem 0 4rem;
+}
+
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0 1.5rem 1rem;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 1.5rem;
+}
+
+.carousel li {
+  flex: 0 0 min(85%, 22rem);
+  scroll-snap-align: start;
+}
+
+.carousel img {
+  display: block;
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }

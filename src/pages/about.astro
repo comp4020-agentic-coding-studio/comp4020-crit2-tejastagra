@@ -3,43 +3,74 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About us">
-  <h1>About Savoir French</h1>
+  <div class="page-content">
+    <h1>About Savoir French</h1>
 
-  <p>
-    Savoir French is a small café, bakery and caterer on the ANU campus,
-    inside the lobby of the School of Art &amp; Design building on Ellery
-    Crescent, near the Kambri precinct.
-  </p>
+    <div class="side-by-side">
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1554475659-9fd915c8f156?auto=format&fit=crop&w=1200&q=60"
+          alt="Placeholder stock photo of a French baguette — not an actual photo of Savoir French"
+          width="1200"
+          height="800"
+          loading="lazy"
+        />
+        <figcaption>
+          Placeholder photo (Unsplash), not a real photo of this café.
+        </figcaption>
+      </figure>
 
-  <p>
-    As a bakery, they make French-style baked goods, including baguette
-    sandwiches available from their counter during the week.
-  </p>
+      <div>
+        <p>
+          We're Rebecca &amp; Clarisse, co-directors of Savoir French. We
+          were both born and raised in France, and professionally trained
+          in Australia. Between us, we have 29 years' experience in
+          hospitality and a shared passion for the industry — we love
+          sharing our culture and language through traditional food and
+          personalised service.
+        </p>
 
-  <figure>
-    <img
-      src="https://images.unsplash.com/photo-1555507036-ab794f4afe5f?auto=format&fit=crop&w=1200&q=60"
-      alt="Placeholder stock photo of a bakery display — not an actual photo of Savoir French"
-      width="1200"
-      height="800"
-      loading="lazy"
-    />
-    <figcaption>
-      Placeholder photo (Unsplash), not a real photo of this café.
-    </figcaption>
-  </figure>
+        <p>
+          No request is ever too big. We're dedicated to giving you the
+          most authentic experience, so you can indulge in a piece of
+          France in Canberra.
+        </p>
+      </div>
+    </div>
+  </div>
 
-  <h2>Their story</h2>
-  <p class="placeholder">
-    We don't have a confirmed founding story or team details for Savoir
-    French. This section is a placeholder until that's verified with the
-    café directly.
-  </p>
+  <section class="story-feature">
+    <h2>Our story</h2>
+    <blockquote>
+      Good, simple and honest traditional French food, made in-house from
+      scratch, using only high quality, fresh and raw ingredients.
+    </blockquote>
+  </section>
 
-  <h2>What they make</h2>
-  <p class="placeholder">
-    We don't have a confirmed menu or product list. Their site describes
-    them generally as a French bakery and café; specific items beyond
-    baguette sandwiches are a placeholder until confirmed.
-  </p>
+  <div class="page-content">
+    <h2>What we make</h2>
+    <p>
+      Savoir French is a play on words. In French, the term
+      <em>savoir-faire</em> means "know-how" — reflecting our business:
+      skilled workers with French know-how, making traditional bread,
+      pastries, dishes and cakes. We're also committed to producing
+      minimal waste, and give back to the community by donating leftover
+      food.
+    </p>
+
+    <h2>Our team</h2>
+    <figure>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0350/0274/4891/files/IMG-20260506-WA0000.jpg?v=1778050459"
+        alt="The Savoir French team"
+        loading="lazy"
+      />
+    </figure>
+    <p>
+      Our team, without whom none of this would be possible, is also made
+      up of superstar baker Gustavo, fabulous all-rounder Yorick, all-star
+      Head Chef Cody, expert Pastry Chef Vu, and not-to-be-underestimated
+      kitchen apprentice Jack.
+    </p>
+  </div>
 </Layout>
