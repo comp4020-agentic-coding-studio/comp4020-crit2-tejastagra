@@ -1,0 +1,7 @@
+# Crit 2 — Unsolicited redesign
+
+**The breakthrough that moved the work forward:** 
+The real breakthrough was realising the brief needed to be finished before building started. Instead of asking the agent to just start building, I made it read the real site first and tell me what was ambiguous and what decisions I had not made yet. Once I had written those answers into CLAUDE.md and PLAN.md, every later request had something to be checked against. That is what meant when I later asked for something that broke my own rules, the agent could flag it as a conflict rather than just quietly doing it. This process felt a lot like what product managers do before a sprint, defining scope and constraints before any work starts. I enjoyed it and found that planning properly upfront actually made the building faster and less frustrating than jumping straight in.
+
+**What this changed about who I want to be as a developer:** 
+I used to think the brief was something you received and the build was the real work. This week the brief was the work. The building was fast once the decisions behind it were made. I also noticed I trust what the agent produces more when I have made it surface the ambiguities first rather than letting it resolve them quietly on my behalf. Going forward I want to keep writing decisions down before prompting for features because that is what made the agent correctable this week rather than just obedient. It had rules to push back against and that made the whole process feel more in control.
