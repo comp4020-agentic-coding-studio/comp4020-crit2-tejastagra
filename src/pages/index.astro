@@ -1,32 +1,59 @@
 ---
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<!doctype html>
-<html lang="en-AU">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMP4020 prototype</title>
-  </head>
-  <body>
-    <header>
-      <nav aria-label="Primary">
-        <a href={import.meta.env.BASE_URL}>Home</a>
-      </nav>
-    </header>
-    <main>
-      <h1>COMP4020 prototype</h1>
-      <p data-testid="intro">
-        Replace this with your prototype. This week's brief is on the course website;
-        <code>spec/README.md</code> explains how the checks in this repo relate to it.
-      </p>
-    </main>
-    <script>
-      const intro = document.querySelector<HTMLElement>('[data-testid="intro"]');
-      if (intro) {
-        intro.dataset.ready = "true";
-      }
-    </script>
-  </body>
-</html>
+<Layout title="Home">
+  <section class="hero">
+    <h1>Savoir French</h1>
+    <p class="location">
+      A small French café, bakery and caterer on the ANU campus, near the
+      Kambri precinct — <strong>105 Ellery Crescent, Acton</strong>.
+    </p>
+
+    <table class="hours-table" aria-label="Opening hours">
+      <tbody>
+        <tr>
+          <th scope="row">Monday–Friday</th>
+          <td>8am–3pm (may close earlier outside ANU teaching periods)</td>
+        </tr>
+        <tr>
+          <th scope="row">Saturday</th>
+          <td>Bookings only — minimum spend applies</td>
+        </tr>
+        <tr>
+          <th scope="row">Sunday &amp; public holidays</th>
+          <td>Closed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cta-row">
+      <a class="btn" href="https://savoirfrench.com.au">Order on their site</a>
+      <a
+        class="btn btn-secondary"
+        href="https://www.google.com/maps/search/?api=1&query=105+Ellery+Crescent+Acton+ACT+2601"
+      >
+        Get directions
+      </a>
+    </div>
+
+    <p class="entrance-note">
+      <strong>Finding the entrance:</strong> Savoir French is inside the lobby
+      of the ANU School of Art &amp; Design building on Ellery Crescent — look
+      for the building lobby, not a street-facing shopfront.
+    </p>
+  </section>
+
+  <figure>
+    <img
+      src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=60"
+      alt="Placeholder stock photo of croissants — not an actual photo of Savoir French"
+      width="1200"
+      height="800"
+      loading="lazy"
+    />
+    <figcaption>
+      Placeholder photo (Unsplash), not a real photo of this café.
+    </figcaption>
+  </figure>
+</Layout>

@@ -1,16 +1,163 @@
-body {
-  margin: 0;
-  padding: 2rem;
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color: #1a1a1a;
+:root {
+  --colour-cream: #f5f0e8;
+  --colour-text: #2c2c2c;
+  --colour-gold: #c9a84c;
 }
 
-main {
-  max-width: 40rem;
-  margin: 0 auto;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--colour-text);
+  background: var(--colour-cream);
 }
 
 a {
-  color: #0b5fff;
+  color: var(--colour-text);
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--colour-gold);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid var(--colour-gold);
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.site-header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.site-footer {
+  padding: 1.5rem;
+  border-top: 2px solid var(--colour-gold);
+  font-size: 0.9rem;
+}
+
+.hero {
+  padding: 1rem 0 2rem;
+}
+
+.hero .location {
+  font-size: 1.1rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--colour-gold);
+  color: var(--colour-text);
+  text-decoration: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  border: 2px solid var(--colour-text);
+}
+
+.btn:hover {
+  background: var(--colour-text);
+  color: var(--colour-cream);
+}
+
+.btn-secondary {
+  background: transparent;
+}
+
+.hours-table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.hours-table th,
+.hours-table td {
+  text-align: left;
+  padding: 0.4rem 1rem 0.4rem 0;
+}
+
+.entrance-note {
+  background: #fff;
+  border-left: 4px solid var(--colour-gold);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.placeholder {
+  background: #fff;
+  border: 2px dashed var(--colour-gold);
+  padding: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+.placeholder::before {
+  content: "PLACEHOLDER — not confirmed: ";
+  font-style: normal;
+  font-weight: bold;
+}
+
+figure {
+  margin: 1.5rem 0;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  color: var(--colour-text);
 }

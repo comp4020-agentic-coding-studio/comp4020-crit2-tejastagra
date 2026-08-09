@@ -1,0 +1,53 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const navLinks = [
+  { href: base, label: "Home" },
+  { href: `${base}about/`, label: "About us" },
+  { href: `${base}catering/`, label: "Catering" },
+  { href: `${base}gift-cards/`, label: "Gift cards" },
+];
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} — Savoir French (student redesign)</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={base}>Savoir French</a>
+      <nav aria-label="Primary">
+        <ul>
+          {
+            navLinks.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>
+        This is a student redesign made for COMP4020 at ANU. It is not the
+        official Savoir French website. For real ordering, gift cards, and
+        bookings, visit
+        <a href="https://savoirfrench.com.au">savoirfrench.com.au</a>.
+      </p>
+    </footer>
+  </body>
+</html>
