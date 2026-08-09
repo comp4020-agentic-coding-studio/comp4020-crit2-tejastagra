@@ -64,6 +64,7 @@ h2 {
   background: var(--colour-cream);
   border-bottom: 1px solid var(--colour-gold);
   position: relative;
+  z-index: 20;
 }
 
 .brand {
@@ -148,8 +149,9 @@ h2 {
     left: 0;
     right: 0;
     display: none;
-    background: var(--colour-cream);
+    background: #fff;
     border-bottom: 1px solid var(--colour-gold);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
     padding: 1rem 2rem;
   }
 
