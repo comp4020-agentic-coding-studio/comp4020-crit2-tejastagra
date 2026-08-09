@@ -161,3 +161,53 @@ catching you out, a fact about the stack the agent keeps getting wrong --- write
 it down here. Growing this file is the work of harness engineering, and the gap
 between this boilerplate and your own version is part of what your prototype
 says about the developer you're becoming.
+
+## My standing rules
+
+- Use UK English throughout (colour, prioritise, organisation, recognise)
+- Usability and accessibility come before visual polish in every decision
+- If something is ambiguous, ask before assuming - do not guess and build
+- Do not add pages or features not in the plan
+
+## This week (C2 - Savoir French)
+
+- This is an informational redesign only - no cart, no ordering system, no login
+- Link to savoirfrench.com.au for ordering
+- The site covers: who they are, what they make, where they are, opening hours, catering
+- Do not add anything outside that scope without asking first
+
+## Design rules
+
+- Every page must have a clear visual hierarchy - one dominant heading, 
+  supporting text, then detail
+- Use a consistent colour palette across all pages - pick it in the plan 
+  and do not deviate
+- Font sizes: body text minimum 16px, headings must be visually distinct
+- All calls to action (order, enquire, get directions) must be immediately 
+  visible without scrolling on both viewports
+- Opening hours and location must be on the homepage, not buried
+- White space is not wasted space - do not fill every gap with content
+- Navigation must be usable on mobile without a horizontal scroll
+
+## Performance
+
+- No large unoptimised images - compress before using
+- No external fonts loaded from Google Fonts or similar unless explicitly 
+  approved
+
+  ## Content tone
+
+- Write in a warm, slightly French-inflected tone - not corporate, not casual
+- Do not invent facts about the bakery - if you do not know something, 
+  leave a placeholder and flag it
+
+## What the current site gets wrong
+
+The hero section shows a pick up order prompt rather than who they are or 
+where they are. The map is a static screenshot. The entrance is through a 
+building lobby but the site says nothing about this. Opening hours are written 
+confusingly. The full page width is not used on desktop. There is a hamburger 
+menu on desktop despite there being plenty of space for a full nav bar.
+
+The redesign's primary goal is wayfinding. Someone with a dead phone or a 
+borrowed laptop must be able to find the cafe in under 10 seconds.
